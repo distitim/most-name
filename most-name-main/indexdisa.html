@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета соискателя работы</title>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Анкета соискателя работы</title>
+    <script>
+        function addChildField() {
+            var container = document.getElementById("childrenContainer");
+            var newField = document.createElement("div");
+            newField.innerHTML = '<label>Возраст ребенка:</label> <input type="text" name="childAge[]"><button type="button" onclick="removeChildField(this)">Убрать ребенка</button><br><br>';
+            container.appendChild(newField);
+        }
+
+        function removeChildField(button) {
+            var container = document.getElementById("childrenContainer");
+            container.removeChild(button.parentElement);
+        }
+
+        function addLanguageField(containerId, selectName) {
+            var container = document.getElementById(containerId);
+            var newField = document.createElement("div");
+            newField.innerHTML = `
+                <select name="${selectName}">
+                    <option value="nodata">-Выбрать-</option>
+                    <option value="english">Английский</option>
+                    <option value="french">Французский</option>
+                    <option value="german">Немецкий</option>
+                    <option value="spanish">Испанский</option>
+                    <option value="chinese">Китайский</option>
+                    <option value="japanese">Японский</option>
+                    <option value="other">Другой</option>
+                </select>
+                <button type="button" onclick="removeLanguageField(this)">Убрать язык</button>
+                <br><br>
+            `;
+            container.appendChild(newField);
+        }
+
+        function removeLanguageField(button) {
+            var container = document.getElementById("languageContainer");
+            container.removeChild(button.parentElement);
+        }
+
+        function addProgrammingLanguageField() {
+            var container = document.getElementById("programmingLanguageContainer");
+            var newField = document.createElement("div");
+            newField.innerHTML = `
+                <select name="programmingLanguages[]">
+                    <option value="nodata">-Выбрать-</option>
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="java">Java</option>
+                    <option value="csharp">C#</option>
+                    <option value="cpp">C++</option>
+                    <option value="ruby">Ruby</option>
+                    <option value="php">PHP</option>
+                    <option value="swift">Swift</option>
+                </select>
+                <button type="button" onclick="removeProgrammingLanguageField(this)">Убрать язык</button>
+                <br><br>
+            `;
+            container.appendChild(newField);
+        }
+
+        function removeProgrammingLanguageField(button) {
+            var container = document.getElementById("programmingLanguageContainer");
+            container.removeChild(button.parentElement);
+        }
+
+        function addHobbyField() {
+            var container = document.getElementById("hobbyContainer");
+            var newField = document.createElement("div");
+            newField.innerHTML = '<label>Ваше хобби:</label> <input type="text" name="hobby[]"><button type="button" onclick="removeHobbyField(this)">Убрать хобби</button><br><br>';
+            container.appendChild(newField);
+        }
+
+        function removeHobbyField(button) {
+            var container = document.getElementById("hobbyContainer");
+            container.removeChild(button.parentElement);
+        }
+    </script>
+</head>
+
+<body bgcolor="#FF8C00">
+    <table width="100%" border="0">
+        <tr>
+            <td align="center">
+                <header>
+                    <h1>Трудоустройство в Jusan</h1>
+                    <nav>
+                        <a href="#home">Главная</a> |
+                        <a href="#about">О нас</a> |
+                        <a href="#contact">Контакты</a>
+                    </nav>
+                </header>
+            </td>
+        </tr>
+    </table>
+    <main>
+        <table width="100%" height="0" border="0">
+            <tr>
+                <td align="center" valign="middle">
+                    <div>
+                        <h1>Анкета для соискателя</h1>
+                        <p>Это пример центрированного контента.</p>
+                        <form>
+                            <label for="lastName">Введите фамилию:</label>
+                            <input type="text" id="lastName" name="lastName">
+                            <br><br>
+                            <label for="firstName">Введите имя:</label>
+                            <input type="text" id="firstName" name="firstName">
+                            <br><br>
+                            <label for="middleName">Введите отчество:</label>
+                            <input type="text" id="middleName" name="middleName">
+                            <br><br>
+                            <label for="address">Адрес места жительства:</label>
+                            <input type="text" id="address" name="address">
+                            <br><br>
+                            <label for="registrationAddress">Адрес по прописке:</label>
+                            <input type="text" id="registrationAddress" name="registrationAddress">
+                            <br><br>
+                            <label for="phone">Контактный телефон:</label>
+                            <input type="text" id="phone" name="phone">
+                            <br><br>
+                            <label for="iin">ИИН:</label>
+                            <input type="text" id="iin" name="iin">
+                            <br><br>
+                            <label for="maritalStatus">Семейное положение:</label>
+                            <select id="maritalStatus" name="maritalStatus">
+                                <option value="default">-Выбрать-</option>
+                                <option value="single">Не женат/Не замужем</option>
+                                <option value="married">Женат/Замужем</option>
+                                <option value="hasChildren">Есть дети</option>
+                                <option value="widow/widower">Вдова/Вдовец</option>
+                                <option value="divorced">Разведен(-а)</option>
+                            </select>
+                            <br><br>
+                            <label>Количество детей и их возраст:</label>
+                            <div id="childrenContainer">
+                                <label>Возраст ребенка:</label> <input type="text" name="childAge[]"><button
+                                    type="button" onclick="removeChildField(this)">Убрать ребенка</button><br><br>
+                                <label>Возраст ребенка:</label> <input type="text" name="childAge[]"><button
+                                    type="button" onclick="removeChildField(this)">Убрать ребенка</button><br><br>
+                                <label>Возраст ребенка:</label> <input type="text" name="childAge[]"><button
+                                    type="button" onclick="removeChildField(this)">Убрать ребенка</button><br><br>
+                            </div>
+                            <button type="button" onclick="addChildField()">Добавить ребенка</button>
+                            <br><br>
+                            <label for="fileInput">Прикрепите PDF-файл "Справка с места работы":</label>
+                            <br><br>
+                            <input type="file" id="fileInput" name="fileInput" accept="application/pdf">
+                            <br><br>
+                            <h1>Ваши требования к вакансии</h1>
+                            <label for="desiredPosition">Должность, на которую вы претендуете:</label>
+                            <input type="text" id="desiredPosition" name="desiredPosition">
+                            <br><br>
+                            <label for="desiredSalary">Желаемая заработная плата:</label>
+                            <input type="text" id="desiredSalary" name="desiredSalary">
+                            <br><br>
+                            <label for="workStartDate">Когда вы сможете приступить к работе?</label>
+                            <input type="date" id="workStartDate" name="workStartDate">
+                            <br><br>
+                            <h1>Образование</h1>
+                            <table width="100%" height="0" border="1">
+                                <tr>
+
+                                    <td align="center" valign="middle">
+                                        Дата поступления
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        Дата Окончания
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        Наименования учебного заведения
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        Специальность
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        Квалификация
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                </tr>
+                            </table>
+                            <h1>Опыт работы</h1>
+                            <table width="100%" height="0" border="1">
+                                <tr>
+
+                                    <td align="center" valign="middle">
+                                        Дата начала работы
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        Дата окончания работы
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        Наименования организации
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        Должность
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        Причины увольнения
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        <br><br>
+                                    </td>
+                                    <td align="center" valign="middle">
+                                        <br><br>
+
+                                    </td>
+                </td>
+                <td align="center" valign="middle">
+                    <br><br>
+                </td>
+                <td align="center" valign="middle">
+                    <br><br>
+                </td>
+            </tr>
+            <tr>
+
+                <td align="center" valign="middle">
+                    <br><br>
+                </td>
+                <td align="center" valign="middle">
+                    <br><br>
+                </td>
+                <td align="center" valign="middle">
+                    <br><br>
+                </td>
+                <td align="center" valign="middle">
+                    <br><br>
+                </td>
+                <td align="center" valign="middle">
+                    <br><br>
+                </td>
+            </tr>
+        </table>
+        <h1>Дополнительная информация</h1>
+        <label for="habbit">Ваше хобби</label>
+        <input type="text" id="habbit" name="habbit">
+                            <br><br>
+                            <label for="languages">Знание иностранных языков:</label>
+                            <div id="languageContainer">
+                                <select name="languages[]">
+                                    <option value="nodata">-Выбрать-</option>
+                                    <option value="english">Английский</option>
+                                    <option value="french">Французский</option>
+                                    <option value="german">Немецкий</option>
+                                    <option value="spanish">Испанский</option>
+                                    <option value="chinese">Китайский</option>
+                                    <option value="japanese">Японский</option>
+                                    <option value="other">Другой</option>
+                                </select>
+                                <button type="button" onclick="removeLanguageField(this)">Убрать язык</button>
+                                <br><br>
+                            </div>
+        <button type="button" onclick="addLanguageField('languageContainer', 'languages[]')">Добавить язык</button>
+        <br><br>
+        <label for="programmingLanguages">Знание языков программирования:</label>
+        <div id="programmingLanguageContainer">
+            <select name="programmingLanguages[]">
+                <option value="nodata">-Выбрать-</option>
+                <option value="python">Python</option>
+                <option value="javascript">JavaScript</option>
+                <option value="java">Java</option>
+                <option value="csharp">C#</option>
+                <option value="cpp">C++</option>
+                <option value="ruby">Ruby</option>
+                <option value="php">PHP</option>
+                <option value="swift">Swift</option>
+            </select>
+            <button type="button" onclick="removeProgrammingLanguageField(this)">Убрать язык</button>
+            <br><br>
+                            </div>
+                            <button type="button" onclick="addProgrammingLanguageField()">Добавить язык</button>
+                            <br><br>
+
+
+
+
+
+
+
+
+            <br><br>
+            <input type="submit" value="Отправить">
+            </form>
+            <br><br><br><br>
+        </div>
+        </td>
+        </tr>
+        </table>
+    </main>
+    <table>
+        <tr>
+            <td align="center" height="150"></td>
+        </tr>
+    </table>
+    <br><br>
+    <footer>
+        <table width="100%" border="0" position="absolute" bottom="0">
+            <tr>
+                <td align="center">
+                    <div>
+                        <p>&copy; 2024 Все права защищены</p>
+                        <p>Контакты: email@example.com</p>
+                        <p><a href="privacy.html">Политика конфиденциальности</a></p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </footer>
+</body>
+
+</html>
